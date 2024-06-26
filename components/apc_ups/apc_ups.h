@@ -140,7 +140,7 @@ class ApcUps : public uart::UARTDevice, public PollingComponent {
   APC_UPS_VALUED_TEXT_SENSOR(copyright_notice, LOWER_Y, Y, std::string)
   APC_UPS_VALUED_TEXT_SENSOR(line_quality, 9 , 9, std::string)
 
-  APC_UPS_SWITCH(quick_test, W)
+  APC_UPS_SWITCH(quick_test, W, W)
 
   void switch_command(const std::string &command);
   void setup() override;
