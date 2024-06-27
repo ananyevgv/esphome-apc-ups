@@ -139,10 +139,10 @@ class ApcUps : public uart::UARTDevice, public PollingComponent {
   APC_UPS_VALUED_TEXT_SENSOR(copyright_notice, LOWER_Y, Y, std::string)
   APC_UPS_VALUED_TEXT_SENSOR(line_quality, 9 , 9, std::string)
 
-  APC_UPS_SWITCH(beeper, A, A)
-  APC_UPS_SWITCH(quick_test, W, W)
-  APC_UPS_SWITCH(deep_test, D, D)
-  APC_UPS_SWITCH(ten_minutes_test, U, U)
+  APC_UPS_SWITCH(beeper, A)
+  APC_UPS_SWITCH(quick_test, W)
+  APC_UPS_SWITCH(deep_test, D)
+  APC_UPS_SWITCH(ten_minutes_test, U)
 
   void switch_command(const std::string &command);
   void setup() override;
