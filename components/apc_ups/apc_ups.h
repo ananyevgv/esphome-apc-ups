@@ -86,7 +86,8 @@ struct PollingCommand {
 
 #define APC_UPS_SENSOR(name, ident, polling_command, value_type) \
   APC_UPS_VALUED_ENTITY_(sensor::Sensor, name, ident, polling_command, value_type)
-#define APC_UPS_SWITCH(name, polling_command) APC_UPS_ENTITY_(switch_::Switch, name, ident, polling_command)
+#define APC_UPS_SWITCH(name, ident,polling_command) \
+  APC_UPS_ENTITY_(switch_::Switch, name, ident, polling_command)
 #define APC_UPS_VALUED_BINARY_SENSOR(name, ident, polling_command, value_type) \
   APC_UPS_VALUED_ENTITY_(binary_sensor::BinarySensor, name, ident, polling_command, value_type)
 #define APC_UPS_BINARY_SENSOR(name, ident, polling_command) \
@@ -139,10 +140,10 @@ class ApcUps : public uart::UARTDevice, public PollingComponent {
   APC_UPS_VALUED_TEXT_SENSOR(copyright_notice, LOWER_Y, Y, std::string)
   APC_UPS_VALUED_TEXT_SENSOR(line_quality, 9 , 9, std::string)
 
-  APC_UPS_SWITCH(beeper, A)
-  APC_UPS_SWITCH(quick_test, W)
-  APC_UPS_SWITCH(deep_test, D)
-  APC_UPS_SWITCH(ten_minutes_test, U)
+  APC_UPS_SWITCH(beeper, A, A)
+  APC_UPS_SWITCH(quick_test, W, W)
+  APC_UPS_SWITCH(deep_test, D, D)
+  APC_UPS_SWITCH(ten_minutes_test, U, U)
 
   void switch_command(const std::string &command);
   void setup() override;
