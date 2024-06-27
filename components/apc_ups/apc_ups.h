@@ -13,10 +13,10 @@ namespace apc_ups {
 
 enum ENUMPollingCommand {
   POLLING_Y = 0,         // Enable smart mode
-  POLLING_A = 1,         // Front panel test @TODO
+  POLLING_A = 1,         // Front panel test 
   POLLING_B = 2,         // Battery voltage
   POLLING_C = 3,         // Internal temperature
-  POLLING_D = 4,         // Runtime calibration @TODO
+  POLLING_D = 4,         // Runtime calibration 
   POLLING_E = 5,         // Automatic self test interval @TODO
   POLLING_F = 6,         // Grid frequency
   POLLING_G = 7,         // Cause of last transfer to battery
@@ -31,9 +31,9 @@ enum ENUMPollingCommand {
   POLLING_Q = 16,        // Status flags
   POLLING_R = 17,        // Turn dumb
   POLLING_S = 18,        // Soft shutdown @TODO
-  POLLING_U = 19,        // Simulate power failure @TODO
+  POLLING_U = 19,        // Simulate power failure 
   POLLING_V = 20,        // Old firmware version
-  POLLING_W = 21,        // Self test @TODO
+  POLLING_W = 21,        // Self test
   POLLING_X = 22,        // Self test results
   POLLING_Z = 23,        // Shutdown immediately @TODO
   POLLING_LOWER_A = 24,  // Protocol info
@@ -141,7 +141,10 @@ class ApcUps : public uart::UARTDevice, public PollingComponent {
   APC_UPS_VALUED_TEXT_SENSOR(copyright_notice, LOWER_Y, Y, std::string)
   APC_UPS_VALUED_TEXT_SENSOR(line_quality, 9 , 9, std::string)
 
+  APC_UPS_SWITCH(beeper, A, A)
   APC_UPS_SWITCH(quick_test, W, W)
+  APC_UPS_SWITCH(deep_test, D, D)
+  APC_UPS_SWITCH(ten_minutes_test, U, U)
 
   void switch_command(const std::string &command);
   void setup() override;
