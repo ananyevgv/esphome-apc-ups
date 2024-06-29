@@ -10,8 +10,8 @@ class ApcUps;
 class ApcUpsSwitch : public switch_::Switch, public Component {
  public:
   void set_parent(ApcUps *parent) { this->parent_ = parent; };
-  void set_off_command(const std::string &command) { this->on_command_ = command; };
-  void set_on_command(const std::string &command) { this->off_command_ = command; };
+  void set_on_command(const std::string &command) { this->on_command_ = command; };
+  void set_off_command(const std::string &command) { this->off_command_ = command; };
   void dump_config() override;
 
  protected:
